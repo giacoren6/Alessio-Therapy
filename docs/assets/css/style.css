@@ -1,59 +1,149 @@
-* {margin: 0; padding: 0; box-sizing: border-box;}
+/* Base */
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #fff;
-    border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+  background-color: beige;;
 }
 
-#menu-toggle:checked ~ nav ul { display: flex; }
+a,
+header a {
+  text-decoration: none;
+  color: #333;
+}
 
-
-nav ul{
-    display: flex;
-    list-style: none;
-    gap: 20px;
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
 }
 
 nav a {
+  text-decoration: none;
+  color: #333;
+
+}
+ 
+.ale-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 20px;
+  color: white;
+}
+
+.btn-ale {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-ale:hover {
+  background-color: #555;
+}
+
+
+
+#ale-body {
+    background-image: url(../images/alessio1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    top: auto;
+    flex-direction: column;
+}
+
+#ale-insta{
     text-decoration: none;
-    color: #333;
-    
+    color: white;
+    font-size: 24px;
+    margin-top: 20px;
+    transition: color 0.3s ease;
+    display: inline-block;
+
 }
 
-#menu-toggle {
-    display: none;
+li,
+nav li {
+    list-style: none;
 }
 
+
+
+#ale-insta:hover {
+    color: #ccc;
+}
+
+main{
+    flex: 1;
+}
+
+
+footer{
+display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px ;
+    margin: auto;
+    color: white;
+    flex-direction: column;
+}
+
+
+/* Hide the checkbox */
+#menu-toggle { display: none; }
+
+/* Hide the hamburger on large screens */
 .menu-icon {
-    display: none;
-    font-size: 26px;
-    cursor: pointer;
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
 }
 
+/* Small screens */
 @media (max-width: 768px) {
-    nav ul {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        width: 200px;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        padding: 10px;
-    }
+  /* stack header items */
+  header { position: relative; }
 
+  /* show hamburger */
+  .menu-icon { display: block; }
 
+  /* hide the menu by default */
+  nav ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;            /* adjust to your header height */
+    right: 0;
+    width: 220px;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
 
-    .menu-icon {
-        display: block;
-    }
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none; /* prevent interaction when hidden */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
 
-    #menu-toggle:checked + nav ul {
-        display: flex;
-    }
+  /* show the menu when toggled */
+  #menu-toggle:checked ~ nav ul {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto; /* allow interaction when visible */
+  }
 }
