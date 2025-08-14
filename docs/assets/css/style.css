@@ -8,9 +8,17 @@ header {
   gap: 16px;
   padding: 20px;
   border-bottom: 1px solid #ccc;
-  background-color: beige;;
+  background-color: beige;
 }
 
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: rgb(203, 203, 175);
+  color: #333;
+
+}
 a,
 header a {
   text-decoration: none;
@@ -21,6 +29,7 @@ nav ul {
   display: flex;
   list-style: none;
   gap: 20px;
+  z-index: 1000;
 }
 
 nav a {
@@ -37,7 +46,9 @@ nav a {
 }
 
 .btn-ale {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px 20px;
   background-color: #333;
   color: white;
@@ -59,20 +70,20 @@ nav a {
     background-attachment: fixed;
     display: flex;
     align-items: center;
-    color: white;
     text-align: center;
     padding: 20px;
     top: auto;
     flex-direction: column;
+    background-color: beige;
 }
 
 #ale-insta{
     text-decoration: none;
-    color: white;
     font-size: 24px;
     margin-top: 20px;
     transition: color 0.3s ease;
     display: inline-block;
+    color: #fff;
 
 }
 
@@ -85,6 +96,71 @@ nav li {
 
 #ale-insta:hover {
     color: #ccc;
+}
+
+.gallery-item{
+    position:relative;
+    margin: 10px;
+    overflow: hidden;
+    border-radius: 10px;
+    columns: 1;
+    column-gap: 10px;
+}
+
+.gallery-item img {
+    height: auto;
+    display: block;
+}
+
+.gallery-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+
+.gallery-grid{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 0 auto;
+    background-color: beige;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+
+}
+
+
+.gallery-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+  
+}
+
+button{
+    padding: 10px 20px;
+    background-color: #333;
+    color: beige;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #555;
 }
 
 main{
